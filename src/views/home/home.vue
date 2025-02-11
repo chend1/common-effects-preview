@@ -6,8 +6,8 @@ const effects = [
     value: 'rain',
   },
   {
-    name: '雪花',
-    value: 'snow',
+    name: '粒子动画',
+    value: 'particle',
   },
 ]
 

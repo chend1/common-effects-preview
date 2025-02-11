@@ -13,18 +13,17 @@ const drops = []
 
 const draw = () => {
   const ctx = canvas.value.getContext('2d')
-  ctx.fillStyle = 'rgba(0,0,0,.09)'
+  ctx.fillStyle = 'rgba(0,0,0,.1)'
   ctx.fillRect(0, 0, rainInfo.width, rainInfo.height)
-  ctx.fillStyle = 'rgba(0, 250, 0, .9)'
   ctx.font = `${fontSize}px 微软雅黑`
   for (let i = 0; i < drops.length; i++) {
     const text = chars[Math.floor(Math.random() * chars.length)]
+    ctx.fillStyle = `rgba(0, 250, 0, 1)`
     ctx.fillText(text, i * fontSize, drops[i].y)
     drops[i].y += fontSize
     if (drops[i].y > rainInfo.height) {
       drops[i].y =
         -(Math.random() * rainInfo.height) + Math.random() * 5 * fontSize
-      drops[i].alpha = 1
     }
   }
 }
@@ -36,7 +35,6 @@ const init = () => {
   for (let i = 0; i < cols; i++) {
     drops[i] = {
       y: -(Math.random() * rainInfo.height) + Math.random() * 5 * fontSize,
-      alpha: 1,
     }
   }
   draw()

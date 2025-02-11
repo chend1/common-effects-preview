@@ -16,6 +16,11 @@ const routes = [
     name: 'rain',
     component: () => import('../views/rain/rain.vue'),
   },
+  {
+    path: '/particle',
+    name: 'particle',
+    component: () => import('../views/particle/particle.vue'),
+  }
 ]
 
 const router = createRouter({
