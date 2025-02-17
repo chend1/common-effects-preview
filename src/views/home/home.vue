@@ -9,6 +9,10 @@ const effects = [
     name: '粒子动画',
     value: 'particle',
   },
+  {
+    name: '文件上传',
+    value: 'upload',
+  },
 ]
 
 const router = useRouter()

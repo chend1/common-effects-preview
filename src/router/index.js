@@ -20,6 +20,11 @@ const routes = [
     path: '/particle',
     name: 'particle',
     component: () => import('../views/particle/particle.vue'),
+  },
+  {
+    path: '/upload',
+    name: 'upload',
+    component: () => import('../views/upload/upload.vue'),
   }
 ]
 
