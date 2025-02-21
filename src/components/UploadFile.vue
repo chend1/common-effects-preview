@@ -16,7 +16,7 @@ const props = defineProps({
     type: Object,
     default: () => {
       return {
-        chunkSize: 1024 * 1024 * 2,
+        chunkSize: 1024 * 1024 * 30,
       }
     },
   },
@@ -27,6 +27,7 @@ const uploadClick = () => {
   uploadFile.value.click()
 }
 
+const emits = defineEmits(['fileChange'])
 const fileChange = async (e) => {
   console.log('e', e.target.files)
   // const work = new Worker()
@@ -34,7 +35,9 @@ const fileChange = async (e) => {
     e.target.files[0],
     props.uploadInfo.chunkSize
   )
-  console.log('chunks', chunks)
+  // console.log('chunks', chunks)
+  emits('fileChange', chunks)
+  uploadFile.value.value = ''
 }
 
 // 获取分片上传的文件
@@ -88,7 +91,7 @@ const getHash = async (file, alog) => {
 <style lang="less" scoped>
 .upload-file {
   width: 100%;
-  height: 100vh;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
